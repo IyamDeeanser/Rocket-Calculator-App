@@ -27,7 +27,7 @@ export class Calculations {
     }
 
     A_t = (M, c_Star, p_cns) => {
-        return (M * (c_Star/(p_cns*g)));
+        return (M * (c_Star/(p_cns)));
     }
 
     io_Calc = (area, ratio) => {

@@ -37,7 +37,7 @@ let t_Coe = 0;      //thrust coefficient
 let calc = new Calculations();
 
 // print calculations
-A_t = calc.A_t(FLOW_RATE, C_STAR, NOZZLE_STAGNATION_PRESSURE); //issue with g vs M
+A_t = calc.A_t(FLOW_RATE, C_STAR, NOZZLE_STAGNATION_PRESSURE);
 P_e = calc.p_e(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_e)
 D_t = calc.areaToDiameter(A_t);
 A_c = calc.io_Calc(A_t, CONTRACTION_RATIO);
@@ -60,7 +60,7 @@ print("Chamber Diameter   -   " + D_c);
 print("Exit Area   -   " + A_e);
 print("Exit Diameter   -   " + D_e);
 print("Contraction Length   -   " + calc.nozzle_L(D_c, D_t, CONTRACTION_HALF_ANGLE));
-print("Expansion Length   -   " + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE));
+print("Expansion Length   -   " + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE)); //issue with length
 print("Contraction Volume   -   " + V_con);
 print("L* Length   -   " + calc.L_c(A_t, L_STAR, A_c, V_con));
 print("Thrust Coefficient - " + t_Coe);
