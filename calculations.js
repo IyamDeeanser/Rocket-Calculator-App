@@ -1,13 +1,10 @@
-// CONSTANTS
+//constants
 const GAS_CONSTANT = 8.3144598 // J / (mol * K)
+const p_a = 101325;
+const g = 9.81;
 
 export class Calculations {
-    /*
-    * y: gamma
-    * Tchamber: tempterature of chamber (K)
-    * Mmolprop: Molecular weight of exhaust (kg/kmol)
-    * returns C* in m/s
-    */
+
     cStar = (y, Tchamber, Mmolprop) => {
         Mmolprop /= 1000;
         return Math.sqrt((((1 + y) / 2) ** ((y + 1) / (y - 1))) / y * GAS_CONSTANT * (Tchamber / Mmolprop));
@@ -30,7 +27,7 @@ export class Calculations {
     }
 
     A_t = (M, c_Star, p_cns) => {
-        return (M * (c_Star/p_cns));
+        return (M * (c_Star/(p_cns*g)));
     }
 
     io_Calc = (area, ratio) => {
@@ -53,4 +50,15 @@ export class Calculations {
         return ((area_Throat*L_STAR - V_con)/area_chamber);
     }
     
+    thrust_coe = (y, p_e, p_cns, e) => {
+        return (Math.sqrt(((2*y**2)/(y-1)) * (2/(y+1))**((y+1)/(y-1)) * (1 - (p_e/p_cns)**((y-1)/y))) + e * ((p_e-p_a)/p_cns));
+    }
+
+    isp = (C_STAR, t_Coe) => {
+        return ((C_STAR*t_Coe)/g);
+    }
+
+    thrust = (p_cns, A_t, t_Coe) => {
+        return (p_cns*A_t*t_Coe);
+    }
 }
