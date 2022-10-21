@@ -1,5 +1,5 @@
 # ROCKET IGNITER CALCULATOR
 
-Made for UBC rocketry
+Made for UBC Rocket
 
-Written by Brian Zhou with lots of help from Timothy Cai
+Timothy Cai, Brian Zhou, Nathan Van Rumpt
