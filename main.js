@@ -4,12 +4,12 @@ import { print } from "./print.js";
 // Variables for CEARUN
 const NOZZLE_STAGNATION_PRESSURE = 750000; // Pa
 const FLOW_RATE = 0.04; // kg/s
-const EXPANSION_RATIO = 2.4; // 2.4
+const EXPANSION_RATIO = 2.40000001; 
 const EXPANSION_HALF_ANGLE = Math.PI/12;
 const CONTRACTION_RATIO = 3;
 const CONTRACTION_HALF_ANGLE = Math.PI/6;
-const SELECT_PROPELLANTS = "Kerosene-GOX";
-const OXIDIZER_FUEL_RATIO = 2.1;
+//const SELECT_PROPELLANTS = "Kerosene-GOX";
+//const OXIDIZER_FUEL_RATIO = 2.1;
 const L_STAR = 1.1;
 
 // Results from CEARUN
@@ -49,7 +49,8 @@ V_con = calc.volume(D_c/2, D_t/2, n_L_C);
 t_Coe = calc.thrust_coe(GAMMA, P_e, NOZZLE_STAGNATION_PRESSURE, EXPANSION_RATIO);
 
 print("C*   -   " + calc.cStar(GAMMA, FLAME_TEMP, MOLECULAR_WEIGHT));
-print("Area Ratio   -   " + calc.areaRatio(GAMMA, FLOW_RATE));
+print("Contraction Mach Number   -   " + calc.mach_Solve(GAMMA, CONTRACTION_RATIO, 0));
+print("Expansion Mach Number   -   " + calc.mach_Solve(GAMMA, EXPANSION_RATIO, 1));
 print("Injector Pressure   -   " + calc.p_inj(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_i));
 print("Throat Pressure   -   " + calc.p_t(NOZZLE_STAGNATION_PRESSURE, GAMMA));
 print("Exit Pressure   -   " + P_e);
@@ -60,9 +61,11 @@ print("Chamber Diameter   -   " + D_c);
 print("Exit Area   -   " + A_e);
 print("Exit Diameter   -   " + D_e);
 print("Contraction Length   -   " + calc.nozzle_L(D_c, D_t, CONTRACTION_HALF_ANGLE));
-print("Expansion Length   -   " + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE)); //issue with length
+print("Expansion Length   -   " + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE));
 print("Contraction Volume   -   " + V_con);
 print("L* Length   -   " + calc.L_c(A_t, L_STAR, A_c, V_con));
 print("Thrust Coefficient - " + t_Coe);
 print("Specific Impulse   -   " + calc.isp(C_STAR, t_Coe));
 print("Thrust - " + calc.thrust(NOZZLE_STAGNATION_PRESSURE, A_t, t_Coe));
+
+console.log(calc.mach_Solve(GAMMA, CONTRACTION_RATIO))

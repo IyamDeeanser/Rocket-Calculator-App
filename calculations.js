@@ -1,5 +1,3 @@
-
-
 //constants
 const GAS_CONSTANT = 8.3144598 // J / (mol * K)
 const p_a = 101325;
@@ -12,8 +10,11 @@ export class Calculations {
         return Math.sqrt((((1 + y) / 2) ** ((y + 1) / (y - 1))) / y * GAS_CONSTANT * (Tchamber / Mmolprop));
     }
 
-    areaRatio = (y, M) => {
-        return ((((y - 1)/2 * M**2 + 1)*2/(y + 1))**((y + 1)/((y - 1) * 2))) / M;
+    mach_Solve = (y, ratio, selection) => {
+        var sol = nerdamer.solve(`((((${y} - 1)/2 * x^2 + 1)*2/(${y} + 1))^((${y} + 1)/((${y} - 1) * 2))) / x = ${ratio}`, 'x');
+        let result = sol.text();
+        
+        return result.split(/,|\[|\]/).filter(Number)[selection];
     }
 
     p_inj = (p_cns, y, M_i) => {
@@ -63,4 +64,6 @@ export class Calculations {
     thrust = (p_cns, A_t, t_Coe) => {
         return (p_cns*A_t*t_Coe);
     }
+
+    
 }
