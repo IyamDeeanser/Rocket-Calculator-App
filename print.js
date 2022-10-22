@@ -1,3 +1,5 @@
+var target = document.getElementById("results")
+
 export function print(string) {
-    document.body.innerHTML += string + "<br>";
+    target.innerHTML += string + "<br>";
 }
