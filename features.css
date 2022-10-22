@@ -14,6 +14,11 @@
   transform: translate(.25rem);
 }
 
+.results-text {
+  font-size: 1.5rem;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .icon-square {
   width: 3rem;
   height: 3rem;
