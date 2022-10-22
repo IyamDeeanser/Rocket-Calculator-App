@@ -1,0 +1,6 @@
+- add pop-ups for additional information
+    - equations in Hill and DOLPRE
+    - notes on why certain values are used (ie. why it's kg/kmol)
+- add explanations for how each of the values affect the outputs
+- write smallish generalized wiki on chamber design
+- add units to outputs
