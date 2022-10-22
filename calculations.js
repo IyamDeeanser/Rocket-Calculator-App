@@ -4,6 +4,10 @@ const p_a = 101325;
 const g = 9.81;
 
 export class Calculations {
+    d_to_r = (degrees) => {
+    var pi = Math.PI;
+    return degrees * (pi/180);
+    }
 
     cStar = (y, Tchamber, Mmolprop) => {
         Mmolprop /= 1000;

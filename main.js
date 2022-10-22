@@ -1,26 +1,24 @@
 import { Calculations } from "./calculations.js";
 import { print } from "./print.js";
+let calc = new Calculations();
 
-// Variables for CEARUN
+// Inputs
 const NOZZLE_STAGNATION_PRESSURE = 750000; // Pa
 const FLOW_RATE = 0.04; // kg/s
 const EXPANSION_RATIO = 2.40000001; 
-const EXPANSION_HALF_ANGLE = Math.PI/12;
+let EXPANSION_HALF_ANGLE = calc.d_to_r(15);
 const CONTRACTION_RATIO = 3;
-const CONTRACTION_HALF_ANGLE = Math.PI/6;
-//const SELECT_PROPELLANTS = "Kerosene-GOX";
-//const OXIDIZER_FUEL_RATIO = 2.1;
-const L_STAR = 1.1;
-
-// Results from CEARUN
+let CONTRACTION_HALF_ANGLE = calc.d_to_r(30);
 const FLAME_TEMP = 3256.57; // K
 const MOLECULAR_WEIGHT = 20.788; // kg/kmol
 const GAMMA = 1.1407;
-const IDEAL_C_STAR = 1792.1; // m/s
 const C_STAR_EFFICIENCY = 1.00;
-const C_STAR = IDEAL_C_STAR*C_STAR_EFFICIENCY;
+const C_STAR = calc.cStar(GAMMA, FLAME_TEMP, MOLECULAR_WEIGHT)*C_STAR_EFFICIENCY; // m/s
+//const SELECT_PROPELLANTS = "Kerosene-GOX";
+//const OXIDIZER_FUEL_RATIO = 2.1;
 
 //calculation variables
+const L_STAR = 1.1;
 let M_i = 0.203;    //mach number at inlet   
 let M_e = 2.163;    //mach number at exit
 let P_e = 0;        //pressure at exit
@@ -34,8 +32,6 @@ let n_L_C = 0;      //nozzle converging length
 let V_con = 0;      //volume of truncated converging cone
 let t_Coe = 0;      //thrust coefficient
 
-let calc = new Calculations();
-
 // print calculations
 A_t = calc.A_t(FLOW_RATE, C_STAR, NOZZLE_STAGNATION_PRESSURE);
 P_e = calc.p_e(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_e)
@@ -48,7 +44,7 @@ n_L_C = calc.nozzle_L(D_c, D_t, CONTRACTION_HALF_ANGLE);
 V_con = calc.volume(D_c/2, D_t/2, n_L_C);
 t_Coe = calc.thrust_coe(GAMMA, P_e, NOZZLE_STAGNATION_PRESSURE, EXPANSION_RATIO);
 
-print("C*   -   " + calc.cStar(GAMMA, FLAME_TEMP, MOLECULAR_WEIGHT));
+print("C*   -   " + C_STAR);
 print("Contraction Mach Number   -   " + calc.mach_Solve(GAMMA, CONTRACTION_RATIO, 0));
 print("Expansion Mach Number   -   " + calc.mach_Solve(GAMMA, EXPANSION_RATIO, 1));
 print("Injector Pressure   -   " + calc.p_inj(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_i));

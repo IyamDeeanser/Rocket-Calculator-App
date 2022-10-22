@@ -138,48 +138,55 @@
 
   <div class="container px-4 py-5" id="featured-3">
     <h1 class="pb-2 border-bottom text-center" id="title">Rocket Engine Chamber Calculator</h1>
-    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+    <p class="text-center py-1">A calculator for chamber iteration, utilizing <a href="https://cearun.grc.nasa.gov/cgi-bin/CEARUN/setProblemType.cgi" target="_blank">CEARUN</a>  values</p>
+    <div class="row g-4 py-1 row-cols-1 row-cols-lg-3">
       <div class="feature col">
         <form>
           <div class="form-group py-3">
             <label>Nozzle Stagnation Pressure</label>
-            <input type="email" class="form-control" id="p-cns" placeholder="Pa">
+            <input class="form-control" id="p-cns" placeholder="Pa">
           </div>
           <div class="form-group py-3">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <label>Flow Rate</label>
+            <input class="form-control" id="f-r" placeholder="kg/s">
           </div>
           <div class="form-group py-3">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-          </div>
-          <div class="form-group py-3">
-            <label for="exampleFormControlInput1">Email address</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <label>C* Efficiency</label>
+            <input class="form-control" id="c_eff" placeholder="0.xx">
           </div>
         </form>
       </div>
       <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
-        </div>
-        <h3 class="fs-2">Featured title</h3>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
-          Call to action
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+        <div class="form-group py-3">
+            <label>Expansion Ratio</label>
+            <input class="form-control" id="R-e" placeholder="A_e/A_t">
+          </div>
+          <div class="form-group py-3">
+            <label>Contraction Ratio</label>
+            <input class="form-control" id="R-c" placeholder="A_c/A_t">
+          </div>
+          <div class="form-group py-3">
+            <label>Expansion Half-Angle</label>
+            <input class="form-control" id="e-hf" placeholder="deg°">
+          </div>
+          <div class="form-group py-3">
+            <label>Contraction Half-Angle</label>
+            <input class="form-control" id="c-hf" placeholder="deg°">
+          </div>
       </div>
       <div class="feature col">
-        <div class="feature-icon d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-2 mb-3">
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
-        </div>
-        <h3 class="fs-2">Featured title</h3>
-        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-        <a href="#" class="icon-link d-inline-flex align-items-center">
-          Call to action
-          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
-        </a>
+        <div class="form-group py-3">
+            <label>Flame Temperature</label>
+            <input class="form-control" id="f_t" placeholder="°K - CEARUN">
+          </div>
+          <div class="form-group py-3">
+            <label>Exhaust Molecular Weight</label>
+            <input class="form-control" id="m_e_w" placeholder="kg/kmol - CEARUN">
+          </div>
+          <div class="form-group py-3">
+            <label>Gamma</label>
+            <input class="form-control" id="y" placeholder="CEARUN">
+          </div>
       </div>
     </div>
   </div>
@@ -187,7 +194,7 @@
   <div class="b-example-divider"></div>
 
   <div class="container px-4 py-5" id="hanging-icons">
-    <h2 class="pb-2 border-bottom">Hanging icons</h2>
+    <h2 class="pb-2 border-bottom text-center">Results</h2>
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
       <div class="col d-flex align-items-start">
         <div class="icon-square text-bg-light d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
