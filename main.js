@@ -77,24 +77,24 @@ function printOutput()
 {
     clear();
     printC1("<strong> C* </strong> <br>" + C_STAR + "<strong> m/s </strong>");
-    printC2("<strong> Contraction Mach Number </strong> <br>" + calc.mach_Solve(GAMMA, CONTRACTION_RATIO, 0));
-    printC3("<strong> Expansion Mach Number </strong> <br>" + calc.mach_Solve(GAMMA, EXPANSION_RATIO, 1));
-    printC1("<strong> Injector Pressure </strong> <br>" + calc.p_inj(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_i) + "<strong> Pa </strong>");
+    printC1("<strong> Contraction Mach Number </strong> <br>" + calc.mach_Solve(GAMMA, CONTRACTION_RATIO, 0));
+    printC1("<strong> Expansion Mach Number </strong> <br>" + calc.mach_Solve(GAMMA, EXPANSION_RATIO, 1));
+    printC2("<strong> Injector Pressure </strong> <br>" + calc.p_inj(NOZZLE_STAGNATION_PRESSURE, GAMMA, M_i) + "<strong> Pa </strong>");
     printC2("<strong> Throat Pressure </strong> <br>" + calc.p_t(NOZZLE_STAGNATION_PRESSURE, GAMMA) + "<strong> Pa </strong>");
-    printC3("<strong> Exit Pressure </strong> <br>" + P_e + "<strong> Pa </strong>");
-    printC1("<strong> Throat Area </strong> <br>" + A_t + "<strong> m^2 </strong>");
+    printC2("<strong> Exit Pressure </strong> <br>" + P_e + "<strong> Pa </strong>");
+    printC2("<strong> Throat Area </strong> <br>" + A_t + "<strong> m^2 </strong>");
     printC2("<strong> Throat Diameter </strong> <br>" + D_t + "<strong> m </strong>");
-    printC3("<strong> Chamber Area </strong> <br>" + A_c + "<strong> m^2 </strong>");
-    printC1("<strong> Chamber Diameter </strong> <br>" + D_c + "<strong> m </strong>");
-    printC2("<strong> Exit Area </strong> <br>" + A_e + "<strong> m^2 </strong>");
+    printC2("<strong> Chamber Area </strong> <br>" + A_c + "<strong> m^2 </strong>");
+    printC2("<strong> Chamber Diameter </strong> <br>" + D_c + "<strong> m </strong>");
+    printC3("<strong> Exit Area </strong> <br>" + A_e + "<strong> m^2 </strong>");
     printC3("<strong> Exit Diameter </strong> <br>" + D_e + "<strong> m </strong>");
-    printC1("<strong> Contraction Length </strong> <br>" + calc.nozzle_L(D_c, D_t, CONTRACTION_HALF_ANGLE)) + "<strong> m </strong>";
-    printC2("<strong> Expansion Length </strong> <br>" + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE) + "<strong> m </strong>");
+    printC3("<strong> Contraction Length </strong> <br>" + calc.nozzle_L(D_c, D_t, CONTRACTION_HALF_ANGLE)) + "<strong> m </strong>";
+    printC3("<strong> Expansion Length </strong> <br>" + calc.nozzle_L(D_e, D_t, EXPANSION_HALF_ANGLE) + "<strong> m </strong>");
     printC3("<strong> Contraction Volume </strong> <br>" + V_con + "<strong> m^3 </strong>");
-    printC1("<strong> Chamber Length </strong> <br>" + calc.L_c(A_t, L_STAR, A_c, V_con) + "<strong> m </strong>");
-    printC2("<strong> Thrust Coefficient </strong> <br>" + t_Coe);
-    printC3("<strong> Specific Impulse </strong> <br>" + calc.isp(C_STAR, t_Coe) + "<strong> s </strong>");
-    printC2("<strong> Thrust </strong> <br>" + calc.thrust(NOZZLE_STAGNATION_PRESSURE, A_t, t_Coe) + "<strong> N </strong>");
+    printC3("<strong> Chamber Length </strong> <br>" + calc.L_c(A_t, L_STAR, A_c, V_con) + "<strong> m </strong>");
+    printC1("<strong> Thrust Coefficient </strong> <br>" + t_Coe);
+    printC1("<strong> Specific Impulse </strong> <br>" + calc.isp(C_STAR, t_Coe) + "<strong> s </strong>");
+    printC1("<strong> Thrust </strong> <br>" + calc.thrust(NOZZLE_STAGNATION_PRESSURE, A_t, t_Coe) + "<strong> N </strong>");
 }
 
 console.log(calc.mach_Solve(GAMMA, CONTRACTION_RATIO))
